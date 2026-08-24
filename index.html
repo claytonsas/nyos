@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NYOS — Sécurité offensive · Pentest & rapports</title>
+<meta name="description" content="NYOS — agence de sécurité offensive. Tests d'intrusion, red team, audit cloud et rapports de vulnérabilités exploitables. Méthodologie PTES / OWASP.">
+<meta name="theme-color" content="#060607">
+<meta property="og:title" content="NYOS — Sécurité offensive">
+<meta property="og:description" content="Nous attaquons vos systèmes comme le ferait un vrai adversaire. Puis nous vous montrons exactement comment refermer la porte.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23060607'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%2300E5A0'/%3E%3C/svg%3E">
+<link rel="preload" href="css/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ PRELOADER ============ -->
+<div class="pre" id="pre">
+  <div class="pre__inner">
+    <div class="pre__row">
+      <span class="pre__mark">NYOS</span>
+      <span class="pre__num" id="preNum">00</span>
+    </div>
+    <div class="pre__bar"><i class="pre__fill" id="preFill"></i></div>
+    <div class="pre__log" id="preLog">initialisation</div>
+  </div>
+</div>
+<div class="pre__curtain" id="curtain"></div>
+
+<!-- ============ OVERLAYS ============ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true">
+  <div class="cursor__ring"><span class="cursor__label" id="curLabel">voir</span></div>
+  <div class="cursor__dot"></div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="logo" data-cursor="link">
+      <span class="logo__dot"></span> NYOS
+    </a>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="#manifeste" data-cursor="link">Manifeste</a>
+      <a href="#services" data-cursor="link">Services</a>
+      <a href="#methode" data-cursor="link">Méthode</a>
+      <a href="#livrables" data-cursor="link">Livrables</a>
+      <a href="services.html" data-cursor="link">Offres</a>
+    </nav>
+    <div class="nav__right">
+      <a href="contact.html" class="btn" data-cursor="link">
+        Demander un audit
+        <svg class="btn__arrow" width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1 12L12 1M12 1H4M12 1V9" stroke="currentColor" stroke-width="1.3"/></svg>
+      </a>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MENU PLEIN ÉCRAN ============ -->
+<div class="menu" id="menu">
+  <ul class="menu__list">
+    <li><a href="#manifeste" data-close>Manifeste</a></li>
+    <li><a href="#services" data-close>Services</a></li>
+    <li><a href="#methode" data-close>Méthode</a></li>
+    <li><a href="#livrables" data-close>Livrables</a></li>
+    <li><a href="services.html">Offres</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="menu__foot">
+    <span>NYOS · Offensive Security</span>
+    <span id="menuClock">--:--:--</span>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="hero__canvas" id="heroCanvas" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+    <div class="hero__top">
+      <span class="hero__badge" data-rv><i></i> Disponible · nouvelles missions</span>
+      <span class="eyebrow" data-rv>Paris · à distance · Europe</span>
+    </div>
+
+    <h1 class="hero__title" id="heroTitle" aria-label="NYOS">
+      <span class="ch">N</span><span class="ch">Y</span><span class="ch">O</span><span class="ch">S</span>
+    </h1>
+
+    <div class="hero__sub">
+      <p data-rv>
+        Agence de <strong>sécurité offensive</strong>. Nous attaquons vos systèmes
+        comme le ferait un véritable adversaire — puis nous vous montrons
+        exactement comment refermer la porte.
+      </p>
+      <div class="hero__kv" data-rv><b>PTES</b><span>Méthodologie</span></div>
+      <div class="hero__kv" data-rv><b>OWASP</b><span>Référentiel</span></div>
+      <div class="hero__kv" data-rv><b>72 h</b><span>Rapport préliminaire</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">
+    <span>Défiler</span>
+    <span class="scroll-cue__line"></span>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" id="marquee" aria-hidden="true">
+  <div class="marquee__track" id="marqueeTrack">
+    <div class="marquee__item">
+      Test d'intrusion <i></i> Red Team <i></i> Audit cloud <i></i> Revue de code <i></i> Ingénierie sociale <i></i> Durcissement <i></i>
+    </div>
+    <div class="marquee__item">
+      Test d'intrusion <i></i> Red Team <i></i> Audit cloud <i></i> Revue de code <i></i> Ingénierie sociale <i></i> Durcissement <i></i>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MANIFESTE ============ -->
+<section class="section manifesto" id="manifeste">
+  <div class="wrap">
+    <div class="manifesto__grid">
+      <div>
+        <span class="eyebrow" data-rv>01 — Manifeste</span>
+        <h2 class="manifesto__text" data-split-words style="margin-top:2.2rem">
+          Un scanner vous donne une liste. Un attaquant vous donne une leçon.
+          Nous préférons que la leçon vienne de nous.
+        </h2>
+      </div>
+      <aside class="manifesto__side">
+        <div class="rule" data-rv></div>
+        <p data-rv>
+          La plupart des rapports de sécurité finissent dans un tiroir : trop longs,
+          trop théoriques, remplis de faux positifs. Nous faisons l'inverse — chaque
+          vulnérabilité que nous remontons a été <strong>exploitée manuellement</strong>,
+          documentée avec sa preuve, et traduite en impact métier.
+        </p>
+        <div class="rule" data-rv></div>
+        <p data-rv>
+          Chaque mission démarre par une autorisation écrite et des règles d'engagement
+          claires. Pas de zone grise, pas de surprise sur votre production.
+        </p>
+        <a href="services.html" class="btn" data-cursor="link" data-rv style="align-self:flex-start;margin-top:.6rem">
+          Voir les offres
+          <svg class="btn__arrow" width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1 12L12 1M12 1H4M12 1V9" stroke="currentColor" stroke-width="1.3"/></svg>
+        </a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES — SCROLL HORIZONTAL ============ -->
+<section class="hsec" id="services">
+  <div class="hsec__head">
+    <span class="eyebrow">02 — Services</span>
+    <span class="hsec__count"><b id="panelIdx">01</b> / 06</span>
+  </div>
+
+  <div class="hsec__viewport" id="hViewport">
+    <div class="hsec__track" id="hTrack">
+
+      <article class="panel" data-tilt>
+        <div class="panel__top">
+          <span class="panel__num">01</span>
+          <span class="panel__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 5.5h16M2 10h16M2 14.5h16" stroke="currentColor" stroke-width="1.3"/><circle cx="6" cy="5.5" r="1.6" fill="currentColor"/><circle cx="13" cy="10" r="1.6" fill="currentColor"/><circle cx="8" cy="14.5" r="1.6" fill="currentColor"/></svg>
+          </span>
+        </div>
+        <div class="panel__body">
+          <h3>Pentest Web &amp; API</h3>
+          <p>Applications métier, SPA, API REST et GraphQL. Authentification, logique métier, contrôle d'accès, injections — testés à la main, pas seulement au scanner.</p>
+          <div class="panel__tags"><span class="tag">OWASP ASVS</span><span class="tag">GraphQL</span><span class="tag">IDOR</span><span class="tag">SSO / OAuth</span></div>
+        </div>
+      </article>
+
+      <article class="panel" data-tilt>
+        <div class="panel__top">
+          <span class="panel__num">02</span>
+          <span class="panel__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="5" rx="1.4" stroke="currentColor" stroke-width="1.3"/><rect x="2" y="12" width="16" height="5" rx="1.4" stroke="currentColor" stroke-width="1.3"/><circle cx="5.4" cy="5.5" r="1" fill="currentColor"/><circle cx="5.4" cy="14.5" r="1" fill="currentColor"/></svg>
+          </span>
+        </div>
+        <div class="panel__body">
+          <h3>Infrastructure interne &amp; externe</h3>
+          <p>Surface exposée sur Internet, réseau interne, Active Directory, postes de travail. Du point d'entrée initial jusqu'au contrôle du domaine.</p>
+          <div class="panel__tags"><span class="tag">Active Directory</span><span class="tag">Kerberos</span><span class="tag">VPN</span><span class="tag">Segmentation</span></div>
+        </div>
+      </article>
+
+      <article class="panel" data-tilt>
+        <div class="panel__top">
+          <span class="panel__num">03</span>
+          <span class="panel__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l6.5 3v5c0 4-2.8 6.9-6.5 8-3.7-1.1-6.5-4-6.5-8V5L10 2z" stroke="currentColor" stroke-width="1.3"/><path d="M7.4 10.2l1.9 1.9 3.4-3.6" stroke="currentColor" stroke-width="1.3"/></svg>
+          </span>
+        </div>
+        <div class="panel__body">
+          <h3>Red Team</h3>
+          <p>Simulation d'adversaire sur objectif : accès à une donnée précise, à un système critique. Scénarios alignés MITRE ATT&amp;CK, dans un cadre strictement autorisé.</p>
+          <div class="panel__tags"><span class="tag">MITRE ATT&amp;CK</span><span class="tag">Scénarios</span><span class="tag">Détection bleue</span></div>
+        </div>
+      </article>
+
+      <article class="panel" data-tilt>
+        <div class="panel__top">
+          <span class="panel__num">04</span>
+          <span class="panel__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5.5 15a3.5 3.5 0 010-7 4.8 4.8 0 019.2-1.1A3.6 3.6 0 0114.8 15H5.5z" stroke="currentColor" stroke-width="1.3"/></svg>
+          </span>
+        </div>
+        <div class="panel__body">
+          <h3>Cloud &amp; conteneurs</h3>
+          <p>AWS, Azure, GCP, Kubernetes et Infrastructure-as-Code. Rôles trop permissifs, buckets ouverts, secrets en clair, échappement de conteneur.</p>
+          <div class="panel__tags"><span class="tag">IAM</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span><span class="tag">Secrets</span></div>
+        </div>
+      </article>
+
+      <article class="panel" data-tilt>
+        <div class="panel__top">
+          <span class="panel__num">05</span>
+          <span class="panel__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 6L3 10l4 4M13 6l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg>
+          </span>
+        </div>
+        <div class="panel__body">
+          <h3>Audit de code &amp; architecture</h3>
+          <p>Revue de code orientée sécurité, analyse de dépendances, revue de conception. On remonte à la cause, pas seulement au symptôme.</p>
+          <div class="panel__tags"><span class="tag">SAST</span><span class="tag">Supply chain</span><span class="tag">Threat model</span></div>
+        </div>
+      </article>
+
+      <article class="panel" data-tilt>
+        <div class="panel__top">
+          <span class="panel__num">06</span>
+          <span class="panel__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="4" y="2.5" width="12" height="15" rx="1.6" stroke="currentColor" stroke-width="1.3"/><path d="M7 7h6M7 10h6M7 13h3.5" stroke="currentColor" stroke-width="1.3"/></svg>
+          </span>
+        </div>
+        <div class="panel__body">
+          <h3>Rapport &amp; remédiation</h3>
+          <p>Le livrable est le produit. Rapport exécutif, rapport technique, preuves reproductibles, plan de correction priorisé — et un contre-audit pour valider.</p>
+          <div class="panel__tags"><span class="tag">CVSS 4.0</span><span class="tag">Contre-audit</span><span class="tag">Accompagnement</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ MÉTHODE — SLIDES PINNÉES ============ -->
+<section class="method" id="methode">
+  <div class="method__sticky" id="methodSticky">
+    <ol class="method__prog" id="methodProg">
+      <li class="on"><i></i> Cadrage</li>
+      <li><i></i> Reconnaissance</li>
+      <li><i></i> Exploitation</li>
+      <li><i></i> Post-exploitation</li>
+      <li><i></i> Restitution</li>
+    </ol>
+
+    <article class="slide on">
+      <div class="slide__inner">
+        <div>
+          <span class="slide__step">Phase 01 / 05</span>
+          <h3>Cadrage</h3>
+          <p>On définit le périmètre, les objectifs et surtout les limites. Rien ne commence sans une autorisation écrite signée et des règles d'engagement claires.</p>
+          <ul class="slide__list">
+            <li><span>01</span> Périmètre technique et hors-périmètre explicite</li>
+            <li><span>02</span> Autorisation écrite &amp; fenêtre d'intervention</li>
+            <li><span>03</span> Contacts d'urgence des deux côtés</li>
+            <li><span>04</span> Boîte noire, grise ou blanche selon l'objectif</li>
+          </ul>
+        </div>
+        <div class="slide__visual"><span class="ring"></span><span class="ring"></span><span class="big">01</span></div>
+      </div>
+    </article>
+
+    <article class="slide">
+      <div class="slide__inner">
+        <div>
+          <span class="slide__step">Phase 02 / 05</span>
+          <h3>Reconnaissance</h3>
+          <p>Cartographie de la surface d'attaque réelle — celle que vous ne voyez plus. Sous-domaines oubliés, environnements de recette exposés, fuites publiques.</p>
+          <ul class="slide__list">
+            <li><span>01</span> Énumération d'actifs et de sous-domaines</li>
+            <li><span>02</span> OSINT sur l'organisation et son empreinte</li>
+            <li><span>03</span> Empreinte technologique et versions</li>
+            <li><span>04</span> Priorisation des cibles à fort impact</li>
+          </ul>
+        </div>
+        <div class="slide__visual"><span class="ring"></span><span class="ring"></span><span class="big">02</span></div>
+      </div>
+    </article>
+
+    <article class="slide">
+      <div class="slide__inner">
+        <div>
+          <span class="slide__step">Phase 03 / 05</span>
+          <h3>Exploitation</h3>
+          <p>Chaque faille est validée à la main. Pas de « probablement vulnérable » : une preuve de concept reproductible, ou ça ne rentre pas dans le rapport.</p>
+          <ul class="slide__list">
+            <li><span>01</span> Validation manuelle, zéro faux positif livré</li>
+            <li><span>02</span> Preuve de concept documentée pas à pas</li>
+            <li><span>03</span> Aucune donnée réelle exfiltrée ni altérée</li>
+            <li><span>04</span> Alerte immédiate si criticité majeure</li>
+          </ul>
+        </div>
+        <div class="slide__visual"><span class="ring"></span><span class="ring"></span><span class="big">03</span></div>
+      </div>
+    </article>
+
+    <article class="slide">
+      <div class="slide__inner">
+        <div>
+          <span class="slide__step">Phase 04 / 05</span>
+          <h3>Post-exploitation</h3>
+          <p>Une faille isolée n'est qu'un détail. Ce qui compte, c'est jusqu'où elle mène : élévation de privilèges, latéralisation, et impact réel sur le métier.</p>
+          <ul class="slide__list">
+            <li><span>01</span> Élévation de privilèges et persistance simulée</li>
+            <li><span>02</span> Latéralisation et test de la segmentation</li>
+            <li><span>03</span> Évaluation de l'impact métier concret</li>
+            <li><span>04</span> Mesure de ce que votre détection a vu</li>
+          </ul>
+        </div>
+        <div class="slide__visual"><span class="ring"></span><span class="ring"></span><span class="big">04</span></div>
+      </div>
+    </article>
+
+    <article class="slide">
+      <div class="slide__inner">
+        <div>
+          <span class="slide__step">Phase 05 / 05</span>
+          <h3>Restitution</h3>
+          <p>Le rapport, la réunion de restitution, le plan d'action. Puis un contre-audit pour vérifier que les correctifs tiennent vraiment.</p>
+          <ul class="slide__list">
+            <li><span>01</span> Rapport exécutif + rapport technique</li>
+            <li><span>02</span> Matrice de criticité et priorisation</li>
+            <li><span>03</span> Restitution orale avec vos équipes</li>
+            <li><span>04</span> Contre-audit de vérification inclus</li>
+          </ul>
+        </div>
+        <div class="slide__visual"><span class="ring"></span><span class="ring"></span><span class="big">05</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ TERMINAL ============ -->
+<section class="section" id="terminal" style="background:var(--bg-2);border-block:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="split" style="align-items:end;margin-bottom:clamp(2rem,5vh,3.5rem)">
+      <div>
+        <span class="eyebrow" data-rv>04 — En pratique</span>
+        <h2 data-rv style="margin-top:1.6rem">À quoi ça<br>ressemble.</h2>
+      </div>
+      <p class="lead" data-rv>
+        Un extrait simplifié d'une mission type : on cartographie, on valide à la main,
+        on documente. Aperçu illustratif — les sorties réelles sont anonymisées dans le rapport.
+      </p>
+    </div>
+
+    <div class="term" data-rv>
+      <div class="term__bar">
+        <span class="term__dots"><i></i><i></i><i></i></span>
+        <span class="term__title">nyos@ops — mission-demo</span>
+        <div class="term__tabs" role="tablist">
+          <button class="term__tab on" data-tab="recon" role="tab" aria-selected="true">Recon</button>
+          <button class="term__tab" data-tab="exploit" role="tab" aria-selected="false">Analyse</button>
+          <button class="term__tab" data-tab="report" role="tab" aria-selected="false">Rapport</button>
+        </div>
+      </div>
+      <div class="term__body" id="termBody"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MATRICE + STATS ============ -->
+<section class="section" id="criticite">
+  <div class="wrap">
+    <span class="eyebrow" data-rv>05 — Criticité</span>
+    <div class="split" style="align-items:end;margin:1.6rem 0 clamp(2rem,5vh,3rem)">
+      <h2 data-rv>Chaque faille<br>est notée.</h2>
+      <p class="lead" data-rv>
+        Notation CVSS croisée avec l'impact métier réel. Une faille « moyenne » sur le papier
+        peut être critique chez vous — et l'inverse est vrai aussi.
+      </p>
+    </div>
+
+    <div class="matrix" data-rv>
+      <div class="sev sev--c"><span class="sev__bar"></span><b>9.0<sup>+</sup></b><span>Critique</span><p>Compromission directe. Alerte sous 2 h, correctif immédiat.</p></div>
+      <div class="sev sev--h"><span class="sev__bar"></span><b>7.0<sup>+</sup></b><span>Élevée</span><p>Exploitation réaliste. Correctif sous 7 jours.</p></div>
+      <div class="sev sev--m"><span class="sev__bar"></span><b>4.0<sup>+</sup></b><span>Moyenne</span><p>Conditions particulières requises. Correctif planifié.</p></div>
+      <div class="sev sev--l"><span class="sev__bar"></span><b>0.1<sup>+</sup></b><span>Faible</span><p>Durcissement et bonnes pratiques. Backlog.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats" data-rv>
+  <div class="stat"><b data-count="10">0</b><span>Catégories OWASP Top 10</span></div>
+  <div class="stat"><b data-count="7">0</b><span>Phases PTES couvertes</span></div>
+  <div class="stat"><b data-count="72" data-suffix=" h">0</b><span>Rapport préliminaire</span></div>
+  <div class="stat"><b data-count="100" data-suffix=" %">0</b><span>Failles validées à la main</span></div>
+</div>
+
+<!-- ============ LIVRABLES ============ -->
+<section class="section" id="livrables">
+  <div class="wrap">
+    <span class="eyebrow" data-rv>06 — Livrables</span>
+    <div class="split" style="align-items:end;margin:1.6rem 0 clamp(2rem,5vh,3rem)">
+      <h2 data-rv>Ce que vous<br>recevez.</h2>
+      <p class="lead" data-rv>
+        Le test d'intrusion, c'est la moitié du travail. L'autre moitié, c'est un document
+        que vos équipes peuvent réellement utiliser lundi matin.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card" data-tilt data-rv>
+        <div class="card__head">
+          <span class="card__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 15V6M8 15V3M13 15V9M18 15v-4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+          <span class="card__idx">01</span>
+        </div>
+        <h3>Rapport exécutif</h3>
+        <p>4 à 6 pages, sans jargon. Le risque, l'exposition, les décisions à prendre. Fait pour un comité de direction.</p>
+      </article>
+
+      <article class="card" data-tilt data-rv>
+        <div class="card__head">
+          <span class="card__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M6.5 8h7M6.5 11.5h4.5" stroke="currentColor" stroke-width="1.4"/></svg></span>
+          <span class="card__idx">02</span>
+        </div>
+        <h3>Rapport technique</h3>
+        <p>Chaque vulnérabilité : contexte, étapes de reproduction, preuve, impact, correctif proposé avec extrait de code quand c'est pertinent.</p>
+      </article>
+
+      <article class="card" data-tilt data-rv>
+        <div class="card__head">
+          <span class="card__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2v16M2 10h16" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.4"/></svg></span>
+          <span class="card__idx">03</span>
+        </div>
+        <h3>Matrice de criticité</h3>
+        <p>Vue d'ensemble CVSS × impact métier. Vous savez en dix secondes par quoi commencer.</p>
+      </article>
+
+      <article class="card" data-tilt data-rv>
+        <div class="card__head">
+          <span class="card__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M13.5 13.5L18 18" stroke="currentColor" stroke-width="1.4"/></svg></span>
+          <span class="card__idx">04</span>
+        </div>
+        <h3>Preuves reproductibles</h3>
+        <p>Captures, requêtes, journaux horodatés. Vos développeurs rejouent le scénario et vérifient le correctif eux-mêmes.</p>
+      </article>
+
+      <article class="card" data-tilt data-rv>
+        <div class="card__head">
+          <span class="card__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="1.4"/></svg></span>
+          <span class="card__idx">05</span>
+        </div>
+        <h3>Plan de remédiation</h3>
+        <p>Priorisé par rapport effort/risque, avec des jalons réalistes. Et on reste joignables pendant la correction.</p>
+      </article>
+
+      <article class="card" data-tilt data-rv>
+        <div class="card__head">
+          <span class="card__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.5 10a6.5 6.5 0 11-2-4.7" stroke="currentColor" stroke-width="1.4"/><path d="M16.8 3v3.5h-3.5" stroke="currentColor" stroke-width="1.4"/></svg></span>
+          <span class="card__idx">06</span>
+        </div>
+        <h3>Contre-audit inclus</h3>
+        <p>Une fois vos correctifs déployés, on repasse vérifier. Un rapport de clôture atteste ce qui est réellement fermé.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STACK ============ -->
+<section class="section" id="stack" style="padding-top:0">
+  <div class="wrap">
+    <div class="rule" style="margin-bottom:clamp(2.5rem,6vh,4rem)"></div>
+    <div class="split">
+      <div>
+        <span class="eyebrow" data-rv>07 — Outillage</span>
+        <h2 data-rv style="margin-top:1.6rem;font-size:var(--t-h3)">
+          Des outils reconnus,<br>des mains humaines.
+        </h2>
+      </div>
+      <div class="badges" data-rv>
+        <span class="badge">Kali Linux</span><span class="badge">Burp Suite</span>
+        <span class="badge">Nmap</span><span class="badge">ffuf</span>
+        <span class="badge">Nuclei</span><span class="badge">BloodHound</span>
+        <span class="badge">Impacket</span><span class="badge">Metasploit</span>
+        <span class="badge">Wireshark</span><span class="badge">Semgrep</span>
+        <span class="badge">Ghidra</span><span class="badge">Kubernetes</span>
+        <span class="badge">Terraform</span><span class="badge">MITRE ATT&amp;CK</span>
+        <span class="badge">OWASP</span><span class="badge">PTES</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq" style="background:var(--bg-2);border-block:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <span class="eyebrow" data-rv>08 — Questions</span>
+        <h2 data-rv style="margin-top:1.6rem">Ce qu'on nous<br>demande.</h2>
+      </div>
+      <div class="acc" data-rv>
+        <div class="acc__item">
+          <button class="acc__btn">Faut-il une autorisation écrite ?<span class="acc__sign"></span></button>
+          <div class="acc__panel"><p>Oui, systématiquement, et c'est non négociable. Aucun test ne démarre sans un mandat signé par une personne habilitée, un périmètre écrit et une fenêtre d'intervention validée. Si l'infrastructure est hébergée chez un tiers, on vérifie aussi que son règlement l'autorise.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn">Combien de temps dure une mission ?<span class="acc__sign"></span></button>
+          <div class="acc__panel"><p>Un pentest applicatif ciblé tient généralement en 5 à 10 jours. Un audit d'infrastructure complet ou une red team s'étalent sur plusieurs semaines. Le cadrage initial est gratuit et sert justement à donner une durée honnête plutôt qu'un chiffre au hasard.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn">Est-ce que ça peut casser la production ?<span class="acc__sign"></span></button>
+          <div class="acc__panel"><p>Le risque n'est jamais nul, on ne prétendra pas le contraire. Il se maîtrise : tests destructifs exclus par défaut, créneaux définis avec vous, contact d'urgence permanent, et arrêt immédiat à la demande. Quand c'est possible, on travaille sur un environnement de recette iso-production.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn">Travaillez-vous avec des PME ?<span class="acc__sign"></span></button>
+          <div class="acc__panel"><p>Oui. Le format s'adapte : un audit d'exposition externe ciblé apporte déjà énormément de valeur pour une petite structure, sans le budget d'une red team complète.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn">Et après le rapport ?<span class="acc__sign"></span></button>
+          <div class="acc__panel"><p>On reste disponibles pendant la phase de correction pour arbitrer les cas ambigus, puis on effectue le contre-audit. Beaucoup de clients enchaînent ensuite sur un rythme annuel ou semestriel, parce que la surface d'attaque bouge à chaque déploiement.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="cta__glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow eyebrow--c" data-rv>Prochaine étape</span>
+    <h2 data-rv style="margin:1.8rem 0 1.4rem">
+      Ce qu'un attaquant<br>voit de vous.
+    </h2>
+    <p class="lead center" data-rv style="margin-bottom:2.6rem">
+      Trente minutes de cadrage, sans engagement. On regarde votre surface exposée
+      et on vous dit franchement si vous avez besoin de nous.
+    </p>
+    <a href="contact.html" class="btn btn--solid btn--lg" data-cursor="link" data-rv>
+      Demander un audit
+      <svg class="btn__arrow" width="14" height="14" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1 12L12 1M12 1H4M12 1V9" stroke="currentColor" stroke-width="1.4"/></svg>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__col" style="max-width:320px">
+        <a href="index.html" class="logo" data-cursor="link"><span class="logo__dot"></span> NYOS</a>
+        <p class="dim" style="font-size:.9rem;margin-top:.4rem">
+          Sécurité offensive, tests d'intrusion et rapports exploitables.
+          Missions encadrées par mandat écrit.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>Site</h4>
+        <a href="index.html">Accueil</a>
+        <a href="services.html">Offres</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <a href="services.html#web">Pentest Web &amp; API</a>
+        <a href="services.html#infra">Infrastructure</a>
+        <a href="services.html#redteam">Red Team</a>
+        <a href="services.html#cloud">Cloud</a>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <a href="mailto:contact@nyos.dev">contact@nyos.dev</a>
+        <a href="contact.html">Formulaire</a>
+        <span class="dim mono" style="font-size:var(--t-micro)" id="footClock">--:--:--</span>
+      </div>
+    </div>
+
+    <div class="footer__word" aria-hidden="true">NYOS</div>
+
+    <div class="footer__bot">
+      <span>© <span id="year">2026</span> NYOS — Tous droits réservés</span>
+      <span>Sécurité offensive · Autorisation écrite requise</span>
+      <a href="#top" data-cursor="link">Retour en haut ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="js/vendor/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
+<script type="module" src="js/hero3d.js"></script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Offres — NYOS</title>
+<meta name="description" content="Les offres NYOS : pentest web & API, infrastructure interne et externe, red team, cloud & conteneurs, audit de code, contre-audit.">
+<meta name="theme-color" content="#060607">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23060607'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%2300E5A0'/%3E%3C/svg%3E">
+<link rel="preload" href="css/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true">
+  <div class="cursor__ring"><span class="cursor__label" id="curLabel">voir</span></div>
+  <div class="cursor__dot"></div>
+</div>
+
+<header class="nav is-solid" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="logo" data-cursor="link"><span class="logo__dot"></span> NYOS</a>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="index.html#manifeste" data-cursor="link">Manifeste</a>
+      <a href="index.html#methode" data-cursor="link">Méthode</a>
+      <a href="index.html#livrables" data-cursor="link">Livrables</a>
+      <a href="services.html" data-cursor="link">Offres</a>
+    </nav>
+    <div class="nav__right">
+      <a href="contact.html" class="btn" data-cursor="link">Demander un audit
+        <svg class="btn__arrow" width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1 12L12 1M12 1H4M12 1V9" stroke="currentColor" stroke-width="1.3"/></svg>
+      </a>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <ul class="menu__list">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="index.html#methode">Méthode</a></li>
+    <li><a href="index.html#livrables">Livrables</a></li>
+    <li><a href="services.html">Offres</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="menu__foot"><span>NYOS · Offensive Security</span><span id="menuClock">--:--:--</span></div>
+</div>
+
+<main>
+
+<!-- ============ EN-TÊTE ============ -->
+<section class="page-hero">
+  <div class="page-hero__glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="crumb" data-rv><a href="index.html">Accueil</a> / Offres</p>
+    <h1 data-rv>Six façons de<br>vous tester.</h1>
+    <p class="lead" data-rv>
+      Chaque mission est cadrée sur mesure — durée, profondeur et cadre légal.
+      Ci-dessous, les formats les plus demandés et ce qu'ils couvrent réellement.
+    </p>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2.4rem" data-rv>
+      <a href="contact.html" class="btn btn--solid" data-cursor="link">Cadrage gratuit
+        <svg class="btn__arrow" width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1 12L12 1M12 1H4M12 1V9" stroke="currentColor" stroke-width="1.3"/></svg>
+      </a>
+      <a href="index.html#methode" class="btn" data-cursor="link">Voir la méthode</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OFFRES ============ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+
+    <article class="offer" id="web">
+      <div>
+        <span class="offer__idx">01 / 06</span>
+        <h3 data-rv>Pentest Web<br>&amp; API</h3>
+      </div>
+      <div>
+        <p class="dim" data-rv>
+          Le format le plus courant. On teste votre application comme un utilisateur
+          malveillant qui aurait du temps : logique métier détournée, contrôle d'accès
+          contourné, données d'un autre client lisibles. Les scanners passent à côté de
+          ces failles parce qu'elles demandent de comprendre votre produit.
+        </p>
+        <ul class="slide__list" data-rv style="margin-top:1.4rem">
+          <li><span>→</span> Authentification, SSO, OAuth, gestion de session</li>
+          <li><span>→</span> Contrôle d'accès horizontal et vertical (IDOR, élévation)</li>
+          <li><span>→</span> Injections, désérialisation, SSRF, téléversements</li>
+          <li><span>→</span> API REST et GraphQL, y compris introspection et rate limiting</li>
+        </ul>
+        <div class="offer__meta" data-rv>
+          <div><span>Durée type</span><b>5 – 10 jours</b></div>
+          <div><span>Approche</span><b>Boîte grise</b></div>
+          <div><span>Tarif</span><b>Sur devis</b></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="offer" id="infra">
+      <div>
+        <span class="offer__idx">02 / 06</span>
+        <h3 data-rv>Infrastructure<br>interne &amp; externe</h3>
+      </div>
+      <div>
+        <p class="dim" data-rv>
+          Deux angles complémentaires. De l'extérieur : ce qu'un inconnu atteint depuis
+          Internet. De l'intérieur : jusqu'où va un attaquant qui a déjà un pied dans le
+          réseau — un poste compromis, un prestataire, un stagiaire mécontent.
+        </p>
+        <ul class="slide__list" data-rv style="margin-top:1.4rem">
+          <li><span>→</span> Cartographie de l'exposition Internet et des services oubliés</li>
+          <li><span>→</span> Active Directory : délégations, Kerberos, chemins d'attaque</li>
+          <li><span>→</span> Test de la segmentation réseau et des cloisonnements</li>
+          <li><span>→</span> Durcissement des postes et des serveurs</li>
+        </ul>
+        <div class="offer__meta" data-rv>
+          <div><span>Durée type</span><b>10 – 20 jours</b></div>
+          <div><span>Approche</span><b>Boîte noire / grise</b></div>
+          <div><span>Tarif</span><b>Sur devis</b></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="offer" id="redteam">
+      <div>
+        <span class="offer__idx">03 / 06</span>
+        <h3 data-rv>Red Team</h3>
+      </div>
+      <div>
+        <p class="dim" data-rv>
+          Ce n'est plus « trouvez toutes les failles » mais « atteignez cet objectif ».
+          Accéder à une base clients, déclencher un virement fictif, sortir un fichier
+          témoin. On mesure autant votre exposition que votre capacité à détecter et réagir.
+        </p>
+        <ul class="slide__list" data-rv style="margin-top:1.4rem">
+          <li><span>→</span> Scénarios alignés sur MITRE ATT&amp;CK</li>
+          <li><span>→</span> Ingénierie sociale strictement encadrée et autorisée</li>
+          <li><span>→</span> Évaluation de la détection et du temps de réaction</li>
+          <li><span>→</span> Débriefing conjoint avec votre équipe défensive</li>
+        </ul>
+        <div class="offer__meta" data-rv>
+          <div><span>Durée type</span><b>3 – 8 semaines</b></div>
+          <div><span>Approche</span><b>Boîte noire, sur objectif</b></div>
+          <div><span>Tarif</span><b>Sur devis</b></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="offer" id="cloud">
+      <div>
+        <span class="offer__idx">04 / 06</span>
+        <h3 data-rv>Cloud<br>&amp; conteneurs</h3>
+      </div>
+      <div>
+        <p class="dim" data-rv>
+          Dans le cloud, la faille est rarement un exploit : c'est un rôle trop permissif,
+          un bucket laissé public, un secret commité il y a huit mois. On audite la
+          configuration réelle, pas le schéma d'architecture.
+        </p>
+        <ul class="slide__list" data-rv style="margin-top:1.4rem">
+          <li><span>→</span> IAM AWS / Azure / GCP : privilèges et chemins d'escalade</li>
+          <li><span>→</span> Kubernetes : RBAC, admission, échappement de conteneur</li>
+          <li><span>→</span> Infrastructure-as-Code et chaîne CI/CD</li>
+          <li><span>→</span> Recherche de secrets exposés dans l'historique Git</li>
+        </ul>
+        <div class="offer__meta" data-rv>
+          <div><span>Durée type</span><b>5 – 15 jours</b></div>
+          <div><span>Approche</span><b>Boîte blanche</b></div>
+          <div><span>Tarif</span><b>Sur devis</b></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="offer" id="code">
+      <div>
+        <span class="offer__idx">05 / 06</span>
+        <h3 data-rv>Audit de code<br>&amp; architecture</h3>
+      </div>
+      <div>
+        <p class="dim" data-rv>
+          Le test d'intrusion trouve les symptômes ; la revue de code trouve la cause.
+          On lit le code là où ça compte — authentification, autorisation, traitement des
+          entrées, cryptographie — et on remonte les motifs qui reviennent.
+        </p>
+        <ul class="slide__list" data-rv style="margin-top:1.4rem">
+          <li><span>→</span> Revue manuelle ciblée + analyse statique</li>
+          <li><span>→</span> Dépendances et risque de chaîne d'approvisionnement</li>
+          <li><span>→</span> Modélisation des menaces sur l'architecture</li>
+          <li><span>→</span> Recommandations intégrables à votre CI</li>
+        </ul>
+        <div class="offer__meta" data-rv>
+          <div><span>Durée type</span><b>5 – 12 jours</b></div>
+          <div><span>Approche</span><b>Boîte blanche</b></div>
+          <div><span>Tarif</span><b>Sur devis</b></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="offer" id="contre-audit">
+      <div>
+        <span class="offer__idx">06 / 06</span>
+        <h3 data-rv>Contre-audit<br>&amp; suivi</h3>
+      </div>
+      <div>
+        <p class="dim" data-rv>
+          Corriger, c'est bien. Vérifier que le correctif tient, c'est mieux. Après vos
+          déploiements, on rejoue chaque scénario et on délivre un rapport de clôture qui
+          atteste ce qui est réellement fermé — et ce qui ne l'est pas.
+        </p>
+        <ul class="slide__list" data-rv style="margin-top:1.4rem">
+          <li><span>→</span> Rejeu de tous les scénarios validés en mission</li>
+          <li><span>→</span> Rapport de clôture opposable à un client ou un auditeur</li>
+          <li><span>→</span> Accompagnement des équipes pendant la correction</li>
+          <li><span>→</span> Suivi récurrent possible (semestriel ou annuel)</li>
+        </ul>
+        <div class="offer__meta" data-rv>
+          <div><span>Durée type</span><b>2 – 5 jours</b></div>
+          <div><span>Approche</span><b>Ciblée</b></div>
+          <div><span>Tarif</span><b>Inclus ou sur devis</b></div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ CADRE ============ -->
+<section class="section" style="background:var(--bg-2);border-block:1px solid var(--line-soft)">
+  <div class="wrap">
+    <span class="eyebrow" data-rv>Cadre d'intervention</span>
+    <div class="split" style="margin-top:1.8rem">
+      <h2 data-rv>Rien ne commence<br>sans mandat.</h2>
+      <div>
+        <p class="lead" data-rv style="margin-bottom:1.6rem">
+          Tester un système sans autorisation est un délit. Toutes nos missions
+          reposent sur un cadre écrit, signé par une personne habilitée à l'engager.
+        </p>
+        <ul class="slide__list" data-rv>
+          <li><span>01</span> Mandat écrit signé, périmètre et hors-périmètre explicites</li>
+          <li><span>02</span> Fenêtre d'intervention et contacts d'urgence des deux côtés</li>
+          <li><span>03</span> Accord de confidentialité réciproque avant tout échange technique</li>
+          <li><span>04</span> Vérification que l'hébergeur tiers autorise les tests</li>
+          <li><span>05</span> Aucune donnée réelle exfiltrée, conservée ou divulguée</li>
+          <li><span>06</span> Destruction des artefacts de mission après restitution</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="cta__glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow eyebrow--c" data-rv>Prochaine étape</span>
+    <h2 data-rv style="margin:1.8rem 0 1.4rem">Parlons de<br>votre périmètre.</h2>
+    <p class="lead center" data-rv style="margin-bottom:2.6rem">
+      Trente minutes pour comprendre votre contexte et vous dire honnêtement
+      quel format a du sens — ou s'il vaut mieux attendre.
+    </p>
+    <a href="contact.html" class="btn btn--solid btn--lg" data-cursor="link" data-rv>Demander un audit
+      <svg class="btn__arrow" width="14" height="14" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1 12L12 1M12 1H4M12 1V9" stroke="currentColor" stroke-width="1.4"/></svg>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__col" style="max-width:320px">
+        <a href="index.html" class="logo" data-cursor="link"><span class="logo__dot"></span> NYOS</a>
+        <p class="dim" style="font-size:.9rem;margin-top:.4rem">Sécurité offensive, tests d'intrusion et rapports exploitables. Missions encadrées par mandat écrit.</p>
+      </div>
+      <div class="footer__col"><h4>Site</h4>
+        <a href="index.html">Accueil</a><a href="services.html">Offres</a><a href="contact.html">Contact</a></div>
+      <div class="footer__col"><h4>Services</h4>
+        <a href="services.html#web">Pentest Web &amp; API</a><a href="services.html#infra">Infrastructure</a>
+        <a href="services.html#redteam">Red Team</a><a href="services.html#cloud">Cloud</a></div>
+      <div class="footer__col"><h4>Contact</h4>
+        <a href="mailto:contact@nyos.dev">contact@nyos.dev</a><a href="contact.html">Formulaire</a>
+        <span class="dim mono" style="font-size:var(--t-micro)" id="footClock">--:--:--</span></div>
+    </div>
+    <div class="footer__word" aria-hidden="true">NYOS</div>
+    <div class="footer__bot">
+      <span>© <span id="year">2026</span> NYOS — Tous droits réservés</span>
+      <span>Sécurité offensive · Autorisation écrite requise</span>
+      <a href="#top" data-cursor="link">Retour en haut ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="js/vendor/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
