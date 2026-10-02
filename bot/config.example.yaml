@@ -1,0 +1,43 @@
+# Copie ce fichier en config.yaml puis adapte-le.
+# Les clés API vont dans .env (jamais ici).
+
+mode: paper            # paper = argent fictif | live = vrais ordres
+
+exchange:
+  id: binanceusdm      # identifiant ccxt : binanceusdm, bybit, okx, bitget, krakenfutures…
+  testnet: false       # true = compte de test de l'exchange (si disponible)
+
+quote: USDT            # devise du compte futures
+symbols:               # format ccxt des perpétuels
+  - BTC/USDT:USDT
+  - ETH/USDT:USDT
+timeframe: 1h          # 1h = moins de bruit et de frais que le scalping en 1m/5m
+
+capital: 1000          # capital de départ en paper / backtest
+daily_target: 35       # sert uniquement aux statistiques
+data_dir: data
+
+strategy:
+  ema_fast: 50         # tendance : EMA 50 au-dessus/en dessous de l'EMA 200
+  ema_slow: 200
+  breakout_period: 20  # entrée sur cassure du plus haut/bas des 20 bougies
+  adx_period: 14
+  adx_min: 20          # ignore les marchés sans tendance
+  atr_period: 14
+  stop_atr: 2.0        # stop à 2 x ATR
+  reward_risk: 2.0     # objectif = 2 x le risque
+  allow_short: true
+
+risk:
+  risk_per_trade: 0.01   # 1 % du capital perdu si le stop est touché
+  max_leverage: 3        # plafond de levier (marge isolée)
+  max_open_positions: 2
+  max_daily_loss: 0.03   # -3 % dans la journée => plus de nouveaux trades
+
+costs:                   # utilisés en backtest et paper
+  taker_fee: 0.0005
+  slippage: 0.0005
+  funding_rate_8h: 0.0001
+
+telegram:
+  enabled: false         # TELEGRAM_TOKEN et TELEGRAM_CHAT_ID dans .env
