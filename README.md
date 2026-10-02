@@ -20,6 +20,7 @@ univers cyber.
 | `css/style.css` | Design system complet (tokens, composants, responsive) |
 | `js/main.js` | Interactions : Lenis, GSAP, curseur, scroll horizontal, terminal, tilt, compteurs |
 | `js/hero3d.js` | Sphère de particules WebGL (Three.js, module ES) |
+| `bot/` | Bot de trading crypto (Python), indépendant du site, voir `bot/README.md` |
 
 ## Technos
 

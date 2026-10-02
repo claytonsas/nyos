@@ -1,0 +1,20 @@
+[Unit]
+Description=NYOS Trader (bot crypto)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=bot
+WorkingDirectory=/opt/nyos-bot
+ExecStart=/opt/nyos-bot/.venv/bin/python -m trader run
+Restart=always
+RestartSec=30
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/nyos-bot/data
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
